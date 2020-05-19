@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Catalyst</string>
+    <string name="edit">Edit</string>
+    <string name="drag">Drag to reorder steps</string>
+</resources>
