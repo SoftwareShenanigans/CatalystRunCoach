@@ -1,7 +1,9 @@
 package io.softwareshenanigans.catalyst.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +16,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import io.softwareshenanigans.catalyst.R
+import io.softwareshenanigans.catalyst.model.LocationService
 import io.softwareshenanigans.catalyst.model.routine.Routine
 import kotlinx.android.synthetic.main.routine_fragment.*
 import java.lang.Exception
 
 
 class RoutineFragment : Fragment() {
+    private val TAG = "RoutineFragment"
 
     companion object {
         fun newInstance() = RoutineFragment()
@@ -62,7 +66,7 @@ class RoutineFragment : Fragment() {
             routine_step_view.adapter = RoutineStepViewAdapter(it)
         })
         startRunButton.setOnClickListener {
-            
+            onStartRunClick()
         }
     }
 
@@ -101,6 +105,12 @@ class RoutineFragment : Fragment() {
         }
     }
 
+
+    private fun onStartRunClick() {
+        Log.i(TAG, "onStartRunClick")
+
+        context!!.startService(Intent(context!!, LocationService::class.java))
+    }
 
 }
 

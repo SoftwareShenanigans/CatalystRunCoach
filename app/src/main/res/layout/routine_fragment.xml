@@ -33,6 +33,7 @@
             android:id="@+id/routine_step_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:onClick="onStartRunClick"
             tools:listitem="@layout/routine_time_interval" />
 
     </LinearLayout>
